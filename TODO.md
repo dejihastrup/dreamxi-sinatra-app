@@ -7,6 +7,9 @@ App:
 App structure:
     Model:
         Users
+            authentication
+            email/password
+            unique email
             has_many Teams
 
         Teams
@@ -14,7 +17,7 @@ App structure:
             has_many Players
 
         Players
-        belongs_to Team 
-        
+            belongs_to Team 
+
 
     
