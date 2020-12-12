@@ -5,7 +5,8 @@ App:
 - You can have multiple XI's and view them via your page. 
 
 App structure:
-    Model:
+    
+Model:
         Users
             authentication
             email/password
