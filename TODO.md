@@ -11,8 +11,8 @@ Model:
         Users
 
             authentication
-            email/password
-            unique email
+            username/password
+            unique username
             has_many Teams
 
         Teams
@@ -21,7 +21,7 @@ Model:
             has_many Players
 
         Players
-        
+
             belongs_to Team 
 
 
