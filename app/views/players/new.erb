@@ -1,3 +1,4 @@
+<% if @team.formation == 433 %>
 <h3>Add your players below: </h3>
 <form method="POST" action="/teams/<%= @team.id %>/players/new">
 <label for="GK">GK</label><br>
@@ -34,3 +35,40 @@
 <input type="text" name="player[][name]" id="ST"><br><br>
 <input type="hidden" name="player[][position]" value="ST">
 <input type="submit" value="Create team">
+<% else %>
+<form method="POST" action="/teams/<%= @team.id %>/players/new">
+<label for="GK">GK</label><br>
+<input type="text" name="player[][name]" id="GK">
+<input type="hidden" name="player[][position]" value="GK"><br><br>
+<label for="LB">LB</label><br>
+<input type="text" name="player[][name]" id="LB"><br><br>
+<input type="hidden" name="player[][position]" value="LB">
+<label for="LCB">LCB</label><br>
+<input type="text" name="player[][name]" id="LCB"><br><br>
+<input type="hidden" name="player[][position]" value="LCB">
+<label for="RCB">RCB</label><br>
+<input type="text" name="player[][name]" id="RCB"><br><br>
+<input type="hidden" name="player[][position]" value="RCB">
+<label for="RB">RB</label><br>
+<input type="text" name="player[][name]" id="RB"><br><br>
+<input type="hidden" name="player[][position]" value="RB">
+<label for="RDM">RDM</label><br>
+<input type="text" name="player[][name]" id="RDM"><br><br>
+<input type="hidden" name="player[][position]" value="RDM">
+<label for="LDM">LDM</label><br>
+<input type="text" name="player[][name]" id="LDM"><br><br>
+<input type="hidden" name="player[][position]" value="LDM">
+<label for="CAM">CAM</label><br>
+<input type="text" name="player[][name]" id="CAM"><br><br>
+<input type="hidden" name="player[][position]" value="CAM">
+<label for="LM">LM</label><br>
+<input type="text" name="player[][name]" id="LM"><br><br>
+<input type="hidden" name="player[][position]" value="LM">
+<label for="RM">RM</label><br>
+<input type="text" name="player[][name]" id="RM"><br><br>
+<input type="hidden" name="player[][position]" value="RM">
+<label for="ST">ST</label><br>
+<input type="text" name="player[][name]" id="ST"><br><br>
+<input type="hidden" name="player[][position]" value="ST">
+<input type="submit" value="Create team">
+<% end %>

@@ -1,0 +1,76 @@
+<h2> Make some changes to the line up for <%=@team.name%>:</h2>
+<br>
+<form method="POST" action="/teams/<%= @team.id%>/players">
+<input type="hidden" name="_method" value="PATCH">
+<% if @team.formation == 433 %>
+<label for="GK">GK</label><br>
+<input type="text" name="player[][name]" id="GK" value="<%= @team.players[0].name %>">
+<input type="hidden" name="player[][position]" value="GK"><br><br>
+<label for="LB">LB</label><br>
+<input type="text" name="player[][name]" id="LB" value="<%= @team.players[1].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LB">
+<label for="LCB">LCB</label><br>
+<input type="text" name="player[][name]" id="LCB" value="<%= @team.players[2].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LCB">
+<label for="RCB">RCB</label><br>
+<input type="text" name="player[][name]" id="RCB" value="<%= @team.players[3].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RCB">
+<label for="RB">RB</label><br>
+<input type="text" name="player[][name]" id="RB" value="<%= @team.players[4].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RB">
+<label for="RCM">RCM</label><br>
+<input type="text" name="player[][name]" id="RCM" value="<%= @team.players[5].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RCM">
+<label for="CM">CM</label><br>
+<input type="text" name="player[][name]" id="CM" value="<%= @team.players[6].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="CM">
+<label for="LCM">LCM</label><br>
+<input type="text" name="player[][name]" id="LCM" value="<%= @team.players[7].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LCM">
+<label for="LW">LW</label><br>
+<input type="text" name="player[][name]" id="LW" value="<%= @team.players[8].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LW">
+<label for="RW">RW</label><br>
+<input type="text" name="player[][name]" id="RW" value="<%= @team.players[9].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RW">
+<label for="ST">ST</label><br>
+<input type="text" name="player[][name]" id="ST" value="<%= @team.players[10].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="ST">
+<input type="submit" value="Edit Team">
+<% else %>
+<label for="GK">GK</label><br>
+<input type="text" name="player[][name]" id="GK" value="<%= @team.players[0].name %>">
+<input type="hidden" name="player[][position]" value="GK"><br><br>
+<label for="LB">LB</label><br>
+<input type="text" name="player[][name]" id="LB" value="<%= @team.players[1].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LB">
+<label for="LCB">LCB</label><br>
+<input type="text" name="player[][name]" id="LCB" value="<%= @team.players[2].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LCB">
+<label for="RCB">RCB</label><br>
+<input type="text" name="player[][name]" id="RCB" value="<%= @team.players[3].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RCB">
+<label for="RB">RB</label><br>
+<input type="text" name="player[][name]" id="RB" value="<%= @team.players[4].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RB">
+<label for="RDM">RDM</label><br>
+<input type="text" name="player[][name]" id="RDM" value="<%= @team.players[5].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RDM">
+<label for="LDM">LDM</label><br>
+<input type="text" name="player[][name]" id="LDM" value="<%= @team.players[6].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LDM">
+<label for="CAM">CAM</label><br>
+<input type="text" name="player[][name]" id="CAM" value="<%= @team.players[7].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="CAM">
+<label for="LM">LM</label><br>
+<input type="text" name="player[][name]" id="LM" value="<%= @team.players[8].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="LM">
+<label for="RM">RM</label><br>
+<input type="text" name="player[][name]" id="RM" value="<%= @team.players[9].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="RM">
+<label for="ST">ST</label><br>
+<input type="text" name="player[][name]" id="ST" value="<%= @team.players[10].name %>"><br><br>
+<input type="hidden" name="player[][position]" value="ST">
+<input type="submit" value="Edit Team">
+
+<% end %>

@@ -1,0 +1,13 @@
+<br><br>
+<h2>Edit team: </h2>
+<br>
+<form method="POST" action="/teams/<%= @team.id %>">
+<input type="hidden" name="_method" value="PATCH">
+<label for="name">Team Name:</label><br><br>
+<input type="text" name="name" id="name" value="<%= @team.name%>"><br><br>
+<label for="formation">Choose a formation:</label><br>
+<select name="formation" id="formation">
+    <option value="433">4-3-3</option>
+    <option value="4231">4-3-2-1</option>
+</select><br><br>
+<input type="submit" value="Edit Team">
