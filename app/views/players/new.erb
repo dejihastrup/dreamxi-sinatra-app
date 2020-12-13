@@ -1,0 +1,36 @@
+<h3>Add your players below: </h3>
+<form method="POST" action="/teams/<%= @team.id %>/players/new">
+<label for="GK">GK</label><br>
+<input type="text" name="player[][name]" id="GK">
+<input type="hidden" name="player[][position]" value="GK"><br><br>
+<label for="LB">LB</label><br>
+<input type="text" name="player[][name]" id="LB"><br><br>
+<input type="hidden" name="player[][position]" value="LB">
+<label for="LCB">LCB</label><br>
+<input type="text" name="player[][name]" id="LCB"><br><br>
+<input type="hidden" name="player[][position]" value="LCB">
+<label for="RCB">RCB</label><br>
+<input type="text" name="player[][name]" id="RCB"><br><br>
+<input type="hidden" name="player[][position]" value="RCB">
+<label for="RB">RB</label><br>
+<input type="text" name="player[][name]" id="RB"><br><br>
+<input type="hidden" name="player[][position]" value="RB">
+<label for="RCM">RCM</label><br>
+<input type="text" name="player[][name]" id="RCM"><br><br>
+<input type="hidden" name="player[][position]" value="RCM">
+<label for="CM">CM</label><br>
+<input type="text" name="player[][name]" id="CM"><br><br>
+<input type="hidden" name="player[][position]" value="CM">
+<label for="LCM">LCM</label><br>
+<input type="text" name="player[][name]" id="LCM"><br><br>
+<input type="hidden" name="player[][position]" value="LCM">
+<label for="LW">LW</label><br>
+<input type="text" name="player[][name]" id="LW"><br><br>
+<input type="hidden" name="player[][position]" value="LW">
+<label for="RW">RW</label><br>
+<input type="text" name="player[][name]" id="RW"><br><br>
+<input type="hidden" name="player[][position]" value="RW">
+<label for="ST">ST</label><br>
+<input type="text" name="player[][name]" id="ST"><br><br>
+<input type="hidden" name="player[][position]" value="ST">
+<input type="submit" value="Create team">

@@ -1,6 +1,9 @@
 <h2><%= @team.name %></h2><br>
 <% if @team.formation == 433 %>
 <img src="https://qph.fs.quoracdn.net/main-qimg-27a531a77968d1381ab0e1684e0ae406" alt="433 formation"><br> 
+<% @team.players.each do |player| %>
+    <h4><%= player.position %>. <%= player.name %> </h4>
+    <% end %>
 <% else %>
 <img src="https://qph.fs.quoracdn.net/main-qimg-31476fed6a9d00aedeb080c6ff271864" alt="4321 formation"><br>
 <% end %>
