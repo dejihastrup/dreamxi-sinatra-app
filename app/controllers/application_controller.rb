@@ -28,6 +28,13 @@ class ApplicationController < Sinatra::Base
       @user ||= User.find(session[:user_id]) if session[:user_id]
     end
 
+    def authentication_required
+      if !logged_in?
+        flash[error] ="You can't make if team if you're not logged in!"
+        redirect to '/'
+      end
+    end
+
   end
 
 end
