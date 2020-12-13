@@ -5,12 +5,11 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do 
-        @user = User.new(username: params[username], password: params[password])
+        @user = User.new(username: params[:username], password: params[:password])
         if @user.save
-            session[user_id] = @user.id
-            redirect to '/users/#{session[user_id]}'
-        else
-            erb :'errors/signup'
+            session[:user_id] = @user.id
+            binding.pry
+            redirect to "/users/#{@user.slug}"
         end
     end
 
@@ -19,13 +18,23 @@ class UsersController < ApplicationController
     end
 
     post '/login' do
-        @user = User.find_by(:username => params[username])
+        @user = User.find_by(:username => params[:username])
 
-        if @user && @user.authenticate(params[password])
-            sessions[user_id] = @user.id
-            redirect to '/users/#{session[user_id]}'
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect to "/users/#{@user.slug}"
         else
+            flash[:error] = "Oops! Looks like you've entered an incorrect username or password. Please try again."
             redirect to '/login'
         end
+    end
+
+    get "/users/:slug" do
+        erb :'users/home'
+    end
+
+    get '/logout' do 
+        session.destroy
+        redirect to '/'
     end
 end
