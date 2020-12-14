@@ -15,7 +15,7 @@
   body {
     background-color: #201F1C;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: Copperplate;
     line-height: 18px;
   }
 
@@ -28,6 +28,13 @@
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
+  }
+
+  .container a {
+    color: #8E8B84;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
   }
 
   h1 {

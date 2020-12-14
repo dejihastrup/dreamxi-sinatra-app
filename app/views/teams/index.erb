@@ -1,4 +1,7 @@
-<h1>Your teams:</h1>
+<br><br><br><h1 style="text-align:center;font-size:60px">Your teams</h1><br><hr style="width:50%;margin: auto;"><br><br>
 <% @teams.each do |team| %>
-    <h4><a href="/teams/<%= team.id %>"><%= team.name %></a></h4>
+    <center>
+    <a href="/teams/<%= team.id %>" style="font-size:25px;text-align:center;color:black"><%= team.name %></a><br><br><br>
+    </center>
 <% end %>
+

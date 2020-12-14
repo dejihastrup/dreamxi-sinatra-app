@@ -1,0 +1,6 @@
+<h2>Are you sure you want to delete <%= @team.name %>?</h2>
+<form action="/teams/<%= @team.id%>/delete" method="post">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" name="answer" value="Delete">
+<input type="submit" name="answer" value="Go Back">
+</form>

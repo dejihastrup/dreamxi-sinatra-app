@@ -67,20 +67,40 @@ class TeamsController < ApplicationController
     patch "/teams/:id" do 
         @team = current_user.teams.find(params[:id])
         @team.update(name: params[:name], formation: params[:formation])
-        binding.pry
+  
         redirect to "/teams/#{@team.id}/edit/players"
     end
 
     patch "/teams/:id/players" do
         @team = current_user.teams.find(params[:id]) 
         params[:player].each_with_index do |player, index|
-            binding.pry
+      
             @team.players[index].update(name: player[:name], position: player[:position])
         end 
-        binding.pry
-        redirect to "/teams/#{@team.id}"
+  
+        redirect to "/teams"
     end
 
-    # delete '' do 
-    # end
+    #Delete
+
+    get '/teams/:id/delete' do
+        @team = current_user.teams.find(params[:id])
+        
+        erb :'teams/delete_confirmation'
+    end
+
+    delete '/teams/:id/delete' do
+        @team = current_user.teams.find(params[:id])
+        binding.pry
+        if params[:answer] == "Go Back"
+            redirect to "/teams" 
+        else
+            # @teams.players.each do |player|
+            #     player.destroy
+            # end
+            # binding.pry
+            @team.destroy
+            redirect to "/teams" 
+        end
+    end
 end
