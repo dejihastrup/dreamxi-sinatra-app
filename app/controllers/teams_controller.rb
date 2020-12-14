@@ -4,7 +4,8 @@ class TeamsController < ApplicationController
         authentication_required
     end
 
-    get '/teams' do  
+    get '/teams' do
+        authentication_required
         @teams = current_user.teams
         erb :'teams/index'
     end
