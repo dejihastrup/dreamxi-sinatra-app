@@ -8,7 +8,6 @@ class UsersController < ApplicationController
         @user = User.new(username: params[:username], password: params[:password])
         if @user.save
             session[:user_id] = @user.id
-            binding.pry
             redirect to "/users/#{@user.slug}"
         end
     end
