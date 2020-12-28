@@ -1,16 +1,9 @@
 <center>
 <br><br><h2><%= @team.name %></h2> <a href="/teams/<%=@team.id%>/edit">Edit</a> | <a href="/teams/<%=@team.id%>/delete">Delete</a><br><br>
-<% if @team.formation == 433 %>
-<img src="https://qph.fs.quoracdn.net/main-qimg-27a531a77968d1381ab0e1684e0ae406" width="40%" height="40%" alt="433 formation" style="float:right;margin-right: 8%;margin-bottom: 6%;"><br><br> 
-<% @team.players.each do |player| %>
-    <h2><%= player.position %>. <%= player.name %> </h2>
-    <% end %>
-<% else %>
-<img src="https://qph.fs.quoracdn.net/main-qimg-31476fed6a9d00aedeb080c6ff271864" width="40%" height="40%" alt="4231 formation" style="float:right;margin-right: 8%;margin-bottom: 6%;"><br>
+<img src="<%= @team.image %>" width="40%" height="40%" alt="<%= @team.formation %> formation" style="float:right;margin-right: 8%;margin-bottom: 6%;"><br>
 <% @team.players.each do |player| %>
     <h4><%= player.position %>. <%= player.name %> </h4>
-    <% end %>
 <% end %>
-</center>
 
+</center>
 

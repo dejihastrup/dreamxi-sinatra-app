@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, "secure_session"
     register Sinatra::Flash
+    register Sinatra::ActiveRecordExtension
   end
 
   get '/' do
@@ -30,7 +31,7 @@ class ApplicationController < Sinatra::Base
 
     def authentication_required
       if !logged_in?
-        flash[error] = "You can't make if team if you're not logged in!"
+        flash[:error] = "You can't make if team if you're not logged in!"
         redirect to '/'
       end
     end

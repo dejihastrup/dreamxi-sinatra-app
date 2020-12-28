@@ -4,7 +4,8 @@ class TeamsController < ApplicationController
         authentication_required
     end
 
-    get '/teams' do  
+    get '/teams' do
+        authentication_required
         @teams = current_user.teams
         erb :'teams/index'
     end
@@ -91,7 +92,6 @@ class TeamsController < ApplicationController
 
     delete '/teams/:id/delete' do
         @team = current_user.teams.find(params[:id])
-        binding.pry
         if params[:answer] == "Go Back"
             redirect to "/teams" 
         else
