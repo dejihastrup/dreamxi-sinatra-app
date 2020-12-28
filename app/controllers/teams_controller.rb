@@ -92,7 +92,6 @@ class TeamsController < ApplicationController
 
     delete '/teams/:id/delete' do
         @team = current_user.teams.find(params[:id])
-        binding.pry
         if params[:answer] == "Go Back"
             redirect to "/teams" 
         else

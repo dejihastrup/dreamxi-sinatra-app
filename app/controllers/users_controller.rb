@@ -5,10 +5,15 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do 
-        @user = User.new(username: params[:username], password: params[:password])
-        if @user.save
+        
+        if params[:username] == "" || params[:password] == ""
+            redirect to '/signup'
+        else 
+            @user = User.new(username: params[:username], password: params[:password])
+            if @user.save
             session[:user_id] = @user.id
             redirect to "/users/#{@user.slug}"
+            end
         end
     end
 
