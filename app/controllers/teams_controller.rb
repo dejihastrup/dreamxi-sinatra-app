@@ -28,52 +28,70 @@ class TeamsController < ApplicationController
 
     
     get "/teams/:id" do
-        @team = current_user.teams.find(params[:id])
-        erb :'teams/show'
+        @team = current_user.teams.find_by(id: params[:id])
+        if @team
+            erb :'teams/show'
+        else 
+            redirect to '/teams'
+        end
     end
 
-    get "/teams/:id/players/new" do
-        @team = current_user.teams.find(params[:id])
-        erb :'players/new'
+    get "/teams/:id/players/new" do 
+        @team = current_user.teams.find_by(id: params[:id])
+        if @team
+            erb :'players/new'
+        else 
+            redirect to '/teams'
+        end
     end 
 
     post "/teams/:id/players/new" do 
-        @team = current_user.teams.find(params[:id])
-        @players = params[:player].map do |details|
-            player = Player.new(details)
-            player.team = @team
-            player.save
-            player
+        @team = current_user.teams.find_by(id: params[:id])
+        if @team
+            @players = params[:player].map do |details|
+                player = Player.new(details)
+                player.team = @team
+                player.save
+                player
+            end
+
+            redirect to "/teams/#{@team.id}"
+        else 
+            redirect to '/teams'
         end
-
-        redirect to "/teams/#{@team.id}"
-
     end
 
     # Edit
 
     get "/teams/:id/edit" do 
-        @team = current_user.teams.find(params[:id])
-        
-        erb :'teams/edit'
+        @team = current_user.teams.find_by(id: params[:id])
+        if @team
+            erb :'teams/edit'
+        else 
+            redirect to '/teams'
+        end
     end
 
 
     get "/teams/:id/edit/players" do 
-        @team = current_user.teams.find(params[:id])
+        @team = current_user.teams.find_by(id: params[:id])
         
-        erb :'players/edit'
+        if @team
+            erb :'players/edit'
+        else 
+            redirect to '/teams'
+        end
     end
 
     patch "/teams/:id" do 
-        @team = current_user.teams.find(params[:id])
+        @team = current_user.teams.find_by(id: params[:id])
         @team.update(name: params[:name], formation: params[:formation])
   
         redirect to "/teams/#{@team.id}/edit/players"
     end
 
     patch "/teams/:id/players" do
-        @team = current_user.teams.find(params[:id]) 
+        @team = current_user.teams.find_by(id: params[:id]) 
         params[:player].each_with_index do |player, index|
       
             @team.players[index].update(name: player[:name], position: player[:position])
@@ -85,13 +103,16 @@ class TeamsController < ApplicationController
     #Delete
 
     get '/teams/:id/delete' do
-        @team = current_user.teams.find(params[:id])
-        
-        erb :'teams/delete_confirmation'
+        @team = current_user.teams.find_by(id: params[:id])
+        if @team
+            erb :'teams/delete_confirmation'
+        else 
+            redirect to '/teams'
+        end
     end
 
     delete '/teams/:id/delete' do
-        @team = current_user.teams.find(params[:id])
+        @team = current_user.teams.find_by(id: params[:id])
         if params[:answer] == "Go Back"
             redirect to "/teams" 
         else
